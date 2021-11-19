@@ -1,0 +1,82 @@
+nav{
+    background-color: #aa3939;
+    /* background-color: #da6a6a; */
+}
+.navbar-brand{
+    font-size: 2rem;
+    color: white!important;
+}
+.profile-btn{
+    background: rgba(255, 255, 255, 0);
+    font-size: 2rem;
+    color: white!important;
+}
+.cart-btn{
+    /* border: 0px solid #226666; */
+    /* background-color: rgba(255, 255, 255, 0); */
+    background-color:#ffaaaa;
+    /* color: #550000; */
+    color: #aa3939;
+}
+.show{
+    aspect-ratio: 3/4;
+}
+.card-body .col{
+    margin: 5px;
+}
+.card{
+    border: 1px solid #d46a6a;
+}
+.category{
+    margin-bottom: 20px;
+}
+.button-thumb{
+    max-height: 3rem;
+    padding: 2px;
+}
+header{
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+.fit-view{
+    min-height: 60vh;
+}
+.fit-view-img{
+    height: 100%;
+    max-width: 100%;
+}
+.row{
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+.top-padding{
+    margin: 5px 0;
+}
+.avail-label{
+    font-weight: bold;
+}
+.shadow{
+    /* min-height: 150px; */
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    box-shadow: 0px -2px 20px 1px rgba(0,0,0,.15) !important;
+}
+.fit-view{
+    min-height: 60vh;
+}
+.fit-view-img{
+    height: 100%;
+    max-width: 100%;
+}
+.btn-outline{
+    border: 1px solid #d46a6a;
+    color: #d46a6a!important;
+}
+.display-container{
+    padding-top: 20px;
+}
+h1{
+    color:#aa3939;
+    font-weight: 100;
+}
