@@ -18,7 +18,7 @@
         // file_put_contents('img/' . $pickname, $image);
         move_uploaded_file($image,'img/' . $pickname);
         $sql = "insert into product(product_name,price,quantity,category,image) values('$name',$price,$quantity,'$category','$pickname')";
-        echo $sql;
+        // echo $sql;
         if(mysqli_query($connect,$sql)){
             
             $MSG = 'Data Successfully Submitted.';
