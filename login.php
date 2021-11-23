@@ -1,7 +1,7 @@
 <?php
     $title = 'Login';
     include './include/header.php';
-    include './include/config.php';
+    include './include/login-logic.php';
 
     
 ?>
@@ -16,13 +16,14 @@
             <h3 class="text-center">Login</h3>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="" id="email" class="form-control" placeholder="someone@example.com" required>
+                <input type="email" name="email" id="email" class="form-control" placeholder="someone@example.com" required>
             </div>            
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" required>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
             </div> 
             <button type="submit" class="btn cart-btn" name="upload">Login</button>
+            <a class="reg-link" href="register.php">Register</a>
         </div>           
     </div>
 </form>
@@ -33,6 +34,9 @@
     }
     .shadow{
         margin-top:20vh;
+    }
+    .reg-link{
+        margin-left: calc(100% - 7ex);
     }
 </style>
 <?php

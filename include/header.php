@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+    include 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,12 +22,14 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              
+            <li class="nav-item">
+          <a class="nav-link" href="add-product.php">Add Product</a>
+        </li>
             </ul>
             <form class="d-flex">
               <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-              <button class="btn cart-btn" type="button">Cart <i class="bi bi-cart3"></i></button>
-              <button class="border-0 bg-none profile-btn" type="button"><i class="bi bi-person"></i></button>
+              <a href="cart.php"><button class="btn cart-btn" type="button">Cart <i class="bi bi-cart3"></i></button></a>
+              <a href="profile.php"><button class="border-0 bg-none profile-btn" type="button" title="<?php echo  $_SESSION['user.name'] ?>"><i class="bi bi-person"></i></button></a>
             </form>
           </div>
         </div>

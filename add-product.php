@@ -1,37 +1,9 @@
 <?php
     $title = 'Add';
     include './include/header.php';
-    include './include/config.php';
+    include './include/add-product-logic.php';
 
 
-    if (isset($_POST['upload']) ) {
-        $name = $_POST['name'];
-        $price = $_POST['price'];
-        $quantity = $_POST['quantity'];
-        $category = $_POST['category'];
-        $description = $_POST['description'];
-        $image = $_FILES['image1']['tmp_name'];
-        var_dump($image);
-        //$realImage = base64_decode($image);
-        $pickname = time().'.png';
-    
-        // file_put_contents('img/' . $pickname, $image);
-        move_uploaded_file($image,'img/' . $pickname);
-        $sql = "insert into product(product_name,price,quantity,category,image) values('$name',$price,$quantity,'$category','$pickname')";
-        // echo $sql;
-        if(mysqli_query($connect,$sql)){
-            
-            $MSG = 'Data Successfully Submitted.';
-            
-            $json = json_encode($MSG);
-            
-            echo $json ;
-        }
-        else {
-            echo $sql;
-        }
-    }
-        
 ?>
 
 
@@ -68,23 +40,23 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="">Dress</label>
-                <input type="file" class="form-control" name="image1" id="image1">
+                <input type="file" class="form-control" name="image" id="image">
             </div>            
             <div class="form-group">
                 <label for="">Small</label>
-                <input type="file" class="form-control" id="" name="small">
+                <input type="file" class="form-control" id="small" name="small">
             </div>            
             <div class="form-group">
                 <label for="">Medium</label>
-                <input type="file" class="form-control" id="" name="medium">
+                <input type="file" class="form-control" id="meduim" name="meduim">
             </div>            
             <div class="form-group">
                 <label for="">Large</label>
-                <input type="file" class="form-control" id="" name="large">
+                <input type="file" class="form-control" id="large" name="large">
             </div>            
             <div class="form-group">
                 <label for="">X Large</label>
-                <input type="file" class="form-control" id="" name="x-large">
+                <input type="file" class="form-control" id="xlarge" name="xlarge">
             </div>            
             <button type="submit" class="btn cart-btn" name="upload">Submit</button>
         </div>

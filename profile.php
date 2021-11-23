@@ -1,8 +1,8 @@
 <?php
-    $title = 'Register';
     include './include/header.php';
+    $title = $_SESSION['user.name'];
     // include './include/config.php';
-    include './include/register-logic.php';
+    include './include/profile-logic.php';
 
     
 ?>

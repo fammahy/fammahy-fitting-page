@@ -1,7 +1,7 @@
 <?php
     $title = 'Login';
     include './include/header.php';
-    include './include/config.php';
+    // include './include/config.php';
 
     
 ?>
