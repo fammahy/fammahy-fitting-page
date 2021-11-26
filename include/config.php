@@ -8,6 +8,8 @@
    $_SESSION['userid'] = isset($_SESSION['userid']) ? $_SESSION['userid']: "";
 //    $GLOBALS['userid'];
    $_SESSION['user.name'] = isset($_SESSION['user.name']) ? $_SESSION['user.name']: "";
+   $_SESSION['user.size'] = isset($_SESSION['user.size']) ? $_SESSION['user.size']: "";
+   $_SESSION['user.email'] = isset($_SESSION['user.email']) ? $_SESSION['user.email']: "";
    if(!$connect)
    {
        echo json_encode("Connection Failed");

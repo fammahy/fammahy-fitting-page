@@ -43,19 +43,19 @@
                 <input type="file" class="form-control" name="image" id="image">
             </div>            
             <div class="form-group">
-                <label for="">Small</label>
+                <label for="">Rectangle</label>
                 <input type="file" class="form-control" id="small" name="small">
             </div>            
             <div class="form-group">
-                <label for="">Medium</label>
+                <label for="">Hourglass</label>
                 <input type="file" class="form-control" id="meduim" name="meduim">
             </div>            
             <div class="form-group">
-                <label for="">Large</label>
+                <label for="">Pear</label>
                 <input type="file" class="form-control" id="large" name="large">
             </div>            
             <div class="form-group">
-                <label for="">X Large</label>
+                <label for="">Apple</label>
                 <input type="file" class="form-control" id="xlarge" name="xlarge">
             </div>            
             <button type="submit" class="btn cart-btn" name="upload">Submit</button>

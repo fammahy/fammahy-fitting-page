@@ -46,7 +46,7 @@
                     <label class="form-check-label text-center" for="body-size1">
                         <img class="model-img" src="img/fitted2/small.png" alt="">
                         <hr>
-                        Small
+                        Rectangle
                     </label>
                 </div>
                 <div class="form-check col-md-3">
@@ -54,7 +54,7 @@
                     <label class="form-check-label text-center" for="body-size2">
                         <img class="model-img" src="img/fitted2/medium.png" alt="">
                         <hr>
-                        Medium
+                        Hourglass
                     </label>
                 </div>
                 <div class="form-check col-md-3">
@@ -62,7 +62,7 @@
                     <label class="form-check-label text-center" for="body-size3">
                         <img class="model-img" src="img/fitted2/large.png" alt="">
                         <hr>
-                        Large
+                        Pear
                     </label>
             </div>
                 <div class="form-check col-md-3">
@@ -70,7 +70,7 @@
                     <label class="form-check-label text-center" for="body-size4">
                         <img class="model-img" src="img/fitted2/x-large.png" alt="">
                         <hr>
-                        XLarge
+                        Apple
                     </label>
             </div>
         </div>        

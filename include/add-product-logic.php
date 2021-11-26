@@ -21,7 +21,8 @@ if (isset($_POST['upload']) ) {
         
         $sql = "insert into product(product_name,price,quantity,category,image) values('$name',$price,$quantity,'$category','$pickname')";
         
-        if(mysqli_query($connect,$sql)){            
+        if(mysqli_query($connect,$sql)){  
+            $MSG ='added successfully' ;         
             $json = json_encode($MSG);
             $prod_submitted = true;
             $sql = "SELECT * FROM product WHERE image='$pickname'";
