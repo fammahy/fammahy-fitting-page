@@ -8,14 +8,14 @@
 
 
 <form action="add-product.php" method="POST" role="form" enctype="multipart/form-data">    
-    <h3 class="text-center">Add Product</h3>
+    <h3 class="text-center  bg-white">Add Product</h3>
     <div class="row">
         
         <div class="col-md-2">
             
         </div>
         
-        <div class="col-md-4">
+        <div class="col-md-4 bg-white">
             <div class="form-group">
                 <label for="">Name</label>
                 <input type="text" name="name" class="form-control" id="" placeholder="Name">
@@ -37,7 +37,7 @@
                 <input type="text" name="description" class="form-control" id="" placeholder="Description">
             </div>            
         </div>            
-        <div class="col-md-4">
+        <div class="col-md-4 bg-white">
             <div class="form-group">
                 <label for="">Dress</label>
                 <input type="file" class="form-control" name="image" id="image">

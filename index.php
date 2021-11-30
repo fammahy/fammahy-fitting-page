@@ -65,7 +65,13 @@
                 <img src="img/<?php echo $data['image']; ?>" class="card-img-top show" alt="...">
                 <div class="card-body row">
                     <a class="btn cart-btn" href="details.php?p=<?php echo $data['id']; ?>">Try on</a>
-                    <button class="btn btn-outline" onclick="addToCart(<?php echo $data['id']; ?>)">add to cart</button>
+                    <?php if (isset($_SESSION['userid']) && $_SESSION['userid']!=''){?>
+                        <button class="btn btn-outline" onclick="addToCart(<?php echo $data['id']; ?>)">Add to cart</button>
+                        
+                    <?php } else { ?>
+                        <a class="btn btn-outline" href="login.php">Add to cart</a>
+                    <?php } ?>
+
                     
                 </div>
             </div>

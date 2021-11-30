@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2021 at 10:46 AM
+-- Generation Time: Nov 30, 2021 at 06:18 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -37,6 +37,16 @@ CREATE TABLE `cart` (
   `total` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `product_id`, `user_id`, `quantity`, `size`, `price`, `total`) VALUES
+(25, 15, 2, 1, 'sm', 56, 56),
+(26, 16, 2, 1, 'sm', 128, 128),
+(27, 19, 2, 1, 'sm', 1000, 1000),
+(28, 15, 2, 1, 'sm', 56, 56);
+
 -- --------------------------------------------------------
 
 --
@@ -60,7 +70,8 @@ INSERT INTO `product` (`id`, `product_name`, `price`, `quantity`, `category`, `i
 (15, 'Bluey', 56, 20, 'summer dress', '1637919000.png'),
 (16, 'Abla', 128, 20, 'ball gown', '1637919199.png'),
 (17, 'Gypsy', 20, 20, 'skirt', '1637919356.png'),
-(18, 'Salsa', 155, 20, 'summer dress', '1637919642.png');
+(18, 'Salsa', 155, 20, 'summer dress', '1637919642.png'),
+(19, 'orange', 1000, 20, 'summer dress', '1638285226.png');
 
 -- --------------------------------------------------------
 
@@ -86,7 +97,8 @@ INSERT INTO `product_details` (`id`, `product_id`, `size1`, `size2`, `size3`, `s
 (6, 15, '1637919001.png', '1637919002.png', '1637919003.png', '1637919004.png', 'available in multiple sizes'),
 (7, 16, '1637919200.png', '1637919201.png', '1637919202.png', '1637919203.png', 'The best'),
 (8, 17, '1637919357.png', '1637919358.png', '1637919359.png', '1637919360.png', 'Very awesome'),
-(9, 18, '1637919643.png', '1637919644.png', '1637919645.png', '1637919646.png', 'Very awesome');
+(9, 18, '1637919643.png', '1637919644.png', '1637919645.png', '1637919646.png', 'Very awesome'),
+(10, 19, '1638285227.png', '1638285228.png', '1638285229.png', '1638285230.png', 'Very awesome');
 
 -- --------------------------------------------------------
 
@@ -114,23 +126,16 @@ CREATE TABLE `users` (
   `email` varchar(25) NOT NULL,
   `password` varchar(50) NOT NULL,
   `bodysize` varchar(2) NOT NULL,
-  `phone` varchar(16) NOT NULL
+  `phone` varchar(16) NOT NULL,
+  `role` varchar(10) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `bodysize`, `phone`) VALUES
-(1, '', '', 'd41d8cd98f00b204e9800998ecf8427e', '', ''),
-(2, 'Adama Isah', 'adama@fammahyfit.com', '81dc9bdb52d04dc20036dbd8313ed055', 'sm', '07037733484'),
-(3, 'Adama Isah', 'adama@fammahyfit.com', '81dc9bdb52d04dc20036dbd8313ed055', 'sm', '07037733484'),
-(4, 'Adama Isah', 'adama@fammahyfit.com', '81dc9bdb52d04dc20036dbd8313ed055', 'sm', '07037733484'),
-(5, 'Adama Isah', 'adama@fammahyfit.com', '81dc9bdb52d04dc20036dbd8313ed055', 'sm', '07037733484'),
-(6, 'Adama Isah', 'adama@fammahyfit.com', '81dc9bdb52d04dc20036dbd8313ed055', 'sm', '07037733484'),
-(7, 'Adama Isah', 'adama@fammahyfit.com', '81dc9bdb52d04dc20036dbd8313ed055', 'sm', '07037733484'),
-(8, 'my name', 'ismailbashir28@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'me', '07037733484'),
-(9, 'my name', 'mmwali90@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'sm', '07037733484');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `bodysize`, `phone`, `role`) VALUES
+(2, 'Adama Isah', 'adama@fammahyfit.com', '81dc9bdb52d04dc20036dbd8313ed055', 'sm', '07037733484', 'user');
 
 --
 -- Indexes for dumped tables
@@ -179,19 +184,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `product_details`
 --
 ALTER TABLE `product_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `transaction`

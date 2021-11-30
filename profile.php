@@ -1,40 +1,42 @@
 <?php
+    $title = 'Profile';
     include './include/header.php';
-    $title = $_SESSION['user.name'];
-    // include './include/config.php';
     include './include/profile-logic.php';
 
     
 ?>
-<form action="register.php" method="POST" role="form">    
+<form action="profile.php" method="POST" role="form">    
     <div class="row padding-10">
         
         <div class="col-md-1">
             
         </div>
-        <div class="col-md-12 shadow">  
+        <div class="col-md-12 shadow bg-white">  
             
             <div class="row">                
                 
                 <div class="col-md-4">
-                <h3 class="text-center">Register</h3>
+                <h3 class="text-center">Edit Profile</h3>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Gabrielle Bonheur" required>
+                    <input type="text" class="form-control" id="name" name="name" value="<?php echo $name?>" placeholder="Gabrielle Bonheur" required>
                 </div> 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="someone@example.com" required>
+                    <input type="email" name="email" id="email" class="form-control" value="<?php echo $email?>" placeholder="someone@example.com" required>
                 </div>            
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
-                </div> 
-                <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="text" name="phone" class="form-control" id="phone" placeholder="07871-274854" required>
+                    <input type="text" name="phone" class="form-control" id="phone" value="<?php echo $phone?>" placeholder="07871-274854" required>
                 </div> 
-                <button type="submit" class="btn cart-btn form-control" name="upload">Register</button>
+                
+                <div class="row">
+                    
+                    
+                    <button type="submit" class="btn cart-btn col" name="upload">Save</button>
+                    <div class="col-sm-4"></div>
+                    <a class="btn btn-danger col" href="logout.php" name="upload">Logout</a>
+                </div>
             </div>   
             <div class="col-md-8">
                 
@@ -95,6 +97,28 @@
             height: 60vh;
         }
 </style>
+<script>
+    let k = document.getElementsByName('body-size');
+    let bodysize = '<?php echo $bodysize?>';
+    switch (bodysize) {
+            case 'sm':
+                k[0].checked = true;
+                break;
+            case 'm':
+                k[1].checked = true;
+                break;
+            case 'l':
+                k[2].checked = true;
+                break;
+            case 'xl':
+                k[3].checked = true;
+                break;
+        
+            default:
+                break;
+        }
+
+</script>
 <?php
     include './include/footer.php';
 ?>

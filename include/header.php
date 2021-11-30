@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="include/style.css">
     <title><?php echo isset($title) ? $title.' - Fammahy Fit' : 'Fammahy fit'?></title>
 </head>
@@ -23,13 +22,15 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-          <a class="nav-link" href="add-product.php">Add Product</a>
-        </li>
+              <?php if ($_SESSION['user.role'] == 'admin') { ?>
+                <a class="nav-link" href="add-product.php">Add Product</a>
+              <?php } ?>
+            </li>
             </ul>
             <form class="d-flex">
               <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-              <a href="cart.php"><button class="btn cart-btn" type="button">Cart <i class="bi bi-cart3"></i></button></a>
-              <a href="profile.php"><button class="border-0 bg-none profile-btn" type="button" title="<?php echo  $_SESSION['user.name'] ?>"><i class="bi bi-person"></i></button></a>
+              <a href="<?php echo (isset($_SESSION['userid']) && $_SESSION['userid']!='')? 'cart.php':'login.php'?>"><button class="btn cart-btn" type="button">Cart <i class="bi bi-cart3"></i></button></a>
+              <a href="<?php echo (isset($_SESSION['userid']) && $_SESSION['userid']!='')? 'profile.php':'login.php'?>"><button class="border-0 bg-none profile-btn" type="button" title="<?php echo  $_SESSION['user.name'] ?>"><i class="bi bi-person"></i></button></a>
             </form>
           </div>
         </div>

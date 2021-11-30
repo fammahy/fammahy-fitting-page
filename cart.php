@@ -73,8 +73,8 @@
             </form>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">TOTAL PRICE</div>
-                <div class="col text-right">£<?php echo ($total*1.2); ?></div>
-            </div> <a class="btn cart-btn" href='checkout.php'>CHECKOUT</a>
+                <div class="col text-right" id="total">£<?php echo ($total*1.2); ?></div>
+            </div> <a class="btn cart-btn" id="checkout-link" href='checkout.php'>CHECKOUT</a>
         </div>
     </div>
 </div>
@@ -241,7 +241,7 @@
 
 <script>
     function deleteItem(el,id) {
-        
+        // document.getElementById('total').innerHTML.replace('£','') * 1
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
         
@@ -263,7 +263,10 @@
                 el.parentNode.parentNode.remove();
             }
         })
-        .catch(error => console.log('error', error));    }
+        .catch(error => console.log('error', error));    
+    }
+    let link = `/newcheckout.php?price=${document.getElementById('total').innerHTML.replace('£','')}`;
+    document.getElementById('checkout-link').setAttribute('href',link)
 </script>
 <?php
     include './include/footer.php';

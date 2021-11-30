@@ -10,6 +10,7 @@
    $_SESSION['user.name'] = isset($_SESSION['user.name']) ? $_SESSION['user.name']: "";
    $_SESSION['user.size'] = isset($_SESSION['user.size']) ? $_SESSION['user.size']: "";
    $_SESSION['user.email'] = isset($_SESSION['user.email']) ? $_SESSION['user.email']: "";
+   $_SESSION['user.role'] = isset($_SESSION['user.role']) ? $_SESSION['user.role']: "";
    if(!$connect)
    {
        echo json_encode("Connection Failed");

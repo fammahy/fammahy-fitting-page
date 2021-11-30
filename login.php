@@ -12,7 +12,7 @@
             
         </div>
             
-        <div class="col-md-4 shadow">
+        <div class="col-md-4 shadow bg-white">
             <h3 class="text-center">Login</h3>
             <div class="form-group">
                 <label for="email">Email</label>

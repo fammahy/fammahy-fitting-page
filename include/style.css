@@ -80,3 +80,17 @@ h1{
     color:#aa3939;
     font-weight: 100;
 }
+
+.model-img{
+    aspect-ratio: 7/16;
+    width: 100%;
+}
+.text-right{
+    text-align: right;
+}
+body{
+    background-image: url("../img/bg3.jpg");
+}
+.bg-white{
+    background-color: #ffffff !important;
+}

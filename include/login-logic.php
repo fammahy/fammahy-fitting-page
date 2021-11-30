@@ -9,6 +9,7 @@ if (isset($_POST['upload']) ) {
         $_SESSION['userid'] = $row['id'];
         $_SESSION['user.name'] = $row['name'];
         $_SESSION['user.email'] = $row['email'];
+        $_SESSION['user.role'] = $row['role'];
         $_SESSION['user.size'] = $row['bodysize'];
         echo '<div class="alert alert-success" role="alert" style="margin:20px 20px 0 20px;">
             Login Successfully :) 

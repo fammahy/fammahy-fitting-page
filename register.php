@@ -12,7 +12,7 @@
         <div class="col-md-1">
             
         </div>
-        <div class="col-md-12 shadow">  
+        <div class="col-md-12 shadow bg-white">  
             
             <div class="row">                
                 

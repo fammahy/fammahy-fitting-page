@@ -19,13 +19,13 @@ if (isset($_POST['cart']) ) {
     $sql = "insert into cart(product_id,user_id,quantity,size,price,total) values('$pid','$userid','$quantity','$size','$price','$total')";
     if(mysqli_query($connect,$sql)){
         echo "<div class='alert alert-success' role='alert' style='margin:20px 20px 0 20px;'>
-        Added $name to cart :) \n$sql
+        Added $name to cart :)
         </div>";        
     }
     else {
         echo '<div class="alert alert-danger" role="alert">
         Unable add item to cart. Try again later :(
-            </div>'.$sql;
+            </div>';
         }
     }
     
