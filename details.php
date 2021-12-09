@@ -28,11 +28,31 @@
             </div>            
 
             <div class="col-md-8">
+            <div class="row"> 
+            <!-- <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <button class="btn btn-outline form-control" onclick="small()"><label>Small</label></button>&nbsp;&nbsp;&nbsp;
+        </div> 
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <button class="btn btn-outline form-control"><label>Medium</label></button>&nbsp;&nbsp;&nbsp;
+        </div>  -->
+        <div class="col-sm-2">            
+            <label class="btn btn-outline form-control rad" for="small"><input class="d-none" value="small" onchange="setSize()" type="radio" name="size" id="small">Small</label>
+        </div> 
+        <div class="col-sm-2">            
+            <label class="btn btn-outline form-control rad" for="medium"><input class="d-none" value="medium" onchange="setSize()" type="radio" name="size" id="medium">Medium</label>
+        </div> 
+        <div class="col-sm-2 p-20">            
+            <label class="btn btn-outline form-control rad" for="large"><input class="d-none" value="large" onchange="setSize()" type="radio" name="size" id="large">Large</label>
+        </div> 
+        <!-- <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <button class="btn btn-outline form-control"><label>Large</label></button>&nbsp;&nbsp;&nbsp;
+        </div> </div>  -->
+
                 <div class="row">                    
                     <div class="form-check col-md-3">
                         <input class="form-check-input" type="radio" name="body-size" onclick="change('small')" id="body-size1" value="sm" checked>
                         <label class="form-check-label text-center" for="body-size1">
-                            <img class="model-img" src="img/fitted2/small.png" alt="">
+                            <img id="rect-img" class="model-img" src="img/<?php echo $_GET['cat']?>/small/rectangle.png" alt="">
                             <hr>
                             Rectangle
                         </label>
@@ -40,7 +60,7 @@
                     <div class="form-check col-md-3">
                         <input class="form-check-input" type="radio" name="body-size" onclick="change('medium')" id="body-size2" value="m">
                         <label class="form-check-label text-center" for="body-size2">
-                            <img class="model-img" src="img/fitted2/medium.png" alt="">
+                            <img id="hour-img" class="model-img" src="img/<?php echo $_GET['cat']?>/small/hourglass.png" alt="">
                             <hr>
                             Hourglass
                         </label>
@@ -48,7 +68,7 @@
                     <div class="form-check col-md-3">
                         <input class="form-check-input" type="radio" name="body-size" onclick="change('large')" id="body-size3" value="l">
                         <label class="form-check-label text-center" for="body-size3">
-                            <img class="model-img" src="img/fitted2/large.png" alt="">
+                            <img id="pear-img" class="model-img" src="img/<?php echo $_GET['cat']?>/small/pear.png" alt="">
                             <hr>
                             Pear
                         </label>
@@ -56,56 +76,84 @@
                     <div class="form-check col-md-3">
                         <input class="form-check-input" type="radio" name="body-size" onclick="change('x-large')" id="body-size4" value="xl">
                         <label class="form-check-label text-center" for="body-size4">
-                            <img class="model-img" src="img/fitted2/x-large.png" alt="">
+                            <img id="apple-img" class="model-img" src="img/<?php echo $_GET['cat']?>/small/apple.png" alt="">
                             <hr>
                             Apple
                         </label>
                     </div>
-                </div>     
+                    <!-- <div class="form-check col-md-10">
+                    <label class="avail-label">SIZE CHART</label>  
+                    <img id="view-img" src="img/chart.png" class="fit-view-img">
+               
+                </div>  -->
+                </div>    
+                
             </div>
+</div>
             <div class="col-md-4">
-                <img id="view-img" src="img/<?php echo $small?>" class="fit-view-img">
+                <img id="view-img" src="img/fitted <?php echo $_GET['cat']?>/small/rectangle.png" class="fit-view-img">
             </div>   
-            
+           
+                
             <div class="row">                
                 
                 <div class="col-md-10">
-                    <label class="avail-label">Description</label>                    
-                    <p><?php echo $desc?></p>
+                    <label class="avail-label"><?php echo $_GET['cat']?></label>                    
                 </div>
                 
                 <div class="col-md-2">
                 <?php if (isset($_SESSION['userid']) && $_SESSION['userid']!=''){?>
                     <a class="btn cart-btn" onclick="addToCart(<?php echo $product?>)">Add to cart</a>
-                <?php } else { ?>
-                    <a class="btn cart-btn" href="login.php">Add to cart</a>
+                    <?php } else { ?>
+                        <a class="btn cart-btn" href="login.php">Add to cart</a>
                 <?php } ?>
-                </div>
-                
+            </div>
+            
             </div>
         </div>
     </div>
-
-<script>
-    var size = "sm";
-    function change(bodysize) {
+    
+    <script>
+         document.getElementById('small').checked = true
+        var size = "sm";
+        function change(bodysize) {
+        // console.log(`this`);
+        // let sizeCheck = document.querySelector('input[name="size"]:checked');
+        // let dir = 'small';
+        // switch (sizeCheck) {
+        //     case 'small':
+        //         dir = "small";
+        //         break;
+        //     case 'medium':
+        //         dir = "medium";
+        //         break;
+        //     case 'large':
+        //         dir = "large";
+        //         break;
+        //     default:
+        //         break;
+        // }
+        // dir=`<?php echo $_GET['cat']?>/${sizeCheck}`;
         let img = document.getElementById('view-img');
+        let check = document.querySelector('input[name="size"]:checked').value;
+        
+        // console.log(dir);
         switch (bodysize) {
             case 'small':
                 size = "sm";
-                img.setAttribute('src',"img/<?php echo $small?>");
+                img.setAttribute('src',`img/fitted <?php echo $_GET['cat']?>/${check}/rectangle.png`);
                 break;
-            case 'medium':
-                size = "m";
-                img.setAttribute('src',"img/<?php echo $medium?>");
-                break;
-            case 'large':
-                size = "l";
-                img.setAttribute('src',"img/<?php echo $large?>");
-                break;
-            case 'x-large':
-                size = "xl";
-                img.setAttribute('src',"img/<?php echo $xlarge?>");
+                case 'medium':
+                    size = "m";
+                    img.setAttribute('src',`img/fitted <?php echo $_GET['cat']?>/${check}/hourglass.png`);
+                    break;
+                case 'large':
+                    size = "l";
+                    img.setAttribute('src',`img/fitted <?php echo $_GET['cat']?>/${check}/pear.png`);
+                    break;
+                case 'x-large':
+                    size = "xl";
+                    img.setAttribute('src',`img/fitted <?php echo $_GET['cat']?>/${check}/apple.png`);
                 break;
         
             default:
@@ -137,5 +185,34 @@
         .then(response => response.text())
         .then(result => document.getElementsByClassName('container')[0].insertAdjacentHTML('afterbegin',result))
         .catch(error => console.log('error', error));
-    }                
+    }            
+    // function change() {
+    //     let size = document.querySelector('input[name="size"]:checked');
+
+    // }    
+    function setSize() {
+        let sizeCheck = document.querySelector('input[name="body-size"]');
+        let check = document.querySelector('input[name="size"]:checked');
+        // console.log(check.value);
+        document.getElementById("rect-img").setAttribute('src',"img/<?php echo $_GET['cat']?>/"+check.value+"/rectangle.png");
+        document.getElementById("hour-img").setAttribute('src',"img/<?php echo $_GET['cat']?>/"+check.value+"/hourglass.png");
+        document.getElementById("pear-img").setAttribute('src',"img/<?php echo $_GET['cat']?>/"+check.value+"/pear.png");
+        document.getElementById("apple-img").setAttribute('src',"img/<?php echo $_GET['cat']?>/"+check.value+"/apple.png");
+
+        // for (let i = 0; i < sizeCheck.length; i++) {
+        //     const el = sizeCheck[i];
+        //     let path = el[i].getAttribute('src').split('/');
+        //     let src = `img/<?php echo $_GET['cat']?>/${check.value}/${path[0]}`;
+        //     console.log(src);
+        //     el[i].setAttribute('scr',src);
+        // }
+    }
 </script>
+<style>
+    .p-20{
+        padding-bottom:20px;
+    }
+    .fit-view-img{
+        max-height:70vh
+    }
+</style>

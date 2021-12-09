@@ -11,6 +11,24 @@
         text.innerHTML = 'Processing';
         load.classList.remove('d-none');
         btn.setAttribute("disabled", "");
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("pay", "true");
+        urlencoded.append("userid", "<?php echo $_SESSION['userid']?>");
+
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: urlencoded,
+        redirect: 'follow'
+        };
+
+        fetch("include/cart-logic.php", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
         window.setTimeout(function(){
             load.classList.add('d-none');
             text.innerHTML ='Pay';  

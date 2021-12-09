@@ -30,6 +30,23 @@
                 $quantity = $row['cart_quantity'];
                 $price = $row['price'];
                 $total += $row['total'] ;
+                $size = $row['size'];
+                switch ($row['size']) {
+                    case 'sm':  
+                        $size = 'Rectangle';
+                        break;
+                    case 'm':  
+                        $size = 'Hourglass';
+                        break;
+                    case 'sm':  
+                        $size = 'Pear';
+                        break;
+                    case 'sm':  
+                        $size = 'Apple';
+                        break;
+                    default:
+                        break;
+                }
             ?>                 
             <div class="row border-top border-bottom">
                 <div class="row main align-items-center">
@@ -37,12 +54,13 @@
                     <div class="col">
                         <div class="row text-muted"><?php echo $p_name; ?></div>
                         <div class="row"><?php echo $cat; ?></div>
+                        <div class="row text-muted"><?php echo $size; ?></div>
                     </div>
                     <!-- <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div> -->
                     <div class="col">
                     <input type="number" class="form-control" value="<?php echo $quantity; ?>" min="0" style="width:4rem;">
                     </div>
-                    <div class="col"><?php echo $price; ?> </span></div>
+                    <div class="col">£<?php echo $price; ?> </span></div>
                     
                     <input type="hidden" name="" id="input" class="form-control" value="<?php echo $cart_id?>">
                     

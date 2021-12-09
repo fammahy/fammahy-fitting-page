@@ -31,19 +31,41 @@ if (isset($_POST['cart']) ) {
     
     if (isset($_GET['p']) ) {    
         $product = $_GET['p'];
+    //     $table = $_GET['cat'];
         
-        $sql = "SELECT * FROM product_details WHERE product_id='$product'";
-        $query = mysqli_query($connect,$sql);
-        if ($row = mysqli_fetch_assoc($query)) {
-            $small = $row['size1'];
-            $medium = $row['size2'];
-            $large = $row['size3'];
-            $xlarge = $row['size4'];
-            $desc = $row['description'];
-            // echo $small;
-        }
-        else {
-        }
+    //     $sql = "SELECT * FROM $table WHERE id='$product'";
+    //     $query = mysqli_query($connect,$sql);
+    //     if ($row = mysqli_fetch_assoc($query)) {
+    //         $small_rectangle = $row['small_rectangle'];
+    //         $small_apple = $row['small_apple'];
+    //         $small_pear = $row['small_pear'];
+    //         $small_hourglass = $row['small_hourglass'];
+    //         $medium_rectangle = $row['medium_rectangle'];
+    //         $medium_apple = $row['medium_apple'];
+    //         $medium_pear = $row['medium_pear'];
+    //         $medium_hourglass = $row['medium_hourglass'];
+    //         $large_rectangle = $row['large_rectangle'];
+    //         $large_apple = $row['large_apple'];
+    //         $large_pear = $row['large_pear'];
+    //         $large_hourglass = $row['large_hourglass'];
+    //         // $xlarge = $row['size4'];
+    //         // $desc = $row['description'];
+    //         // echo $small;
+    //     }
+    //     else {
+    //     }
+    //     // $sql = "SELECT * FROM product_details WHERE product_id='$product'";
+        // $query = mysqli_query($connect,$sql);
+        // if ($row = mysqli_fetch_assoc($query)) {
+        //     $small = $row['size1'];
+        //     $medium = $row['size2'];
+        //     $large = $row['size3'];
+        //     $xlarge = $row['size4'];
+        //     $desc = $row['description'];
+        //     // echo $small;
+        // }
+        // else {
+        // }
 
 }
     ?>
