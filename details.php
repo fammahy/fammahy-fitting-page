@@ -38,12 +38,14 @@
         <div class="col-sm-2">            
             <label class="btn btn-outline form-control rad" for="small"><input class="d-none" value="small" onchange="setSize()" type="radio" name="size" id="small">Small</label>
         </div> 
+        <?php if($_GET['cat'] == 'tall'){?>
         <div class="col-sm-2">            
             <label class="btn btn-outline form-control rad" for="medium"><input class="d-none" value="medium" onchange="setSize()" type="radio" name="size" id="medium">Medium</label>
         </div> 
         <div class="col-sm-2 p-20">            
             <label class="btn btn-outline form-control rad" for="large"><input class="d-none" value="large" onchange="setSize()" type="radio" name="size" id="large">Large</label>
         </div> 
+        <?php } ?>
         <!-- <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <button class="btn btn-outline form-control"><label>Large</label></button>&nbsp;&nbsp;&nbsp;
         </div> </div>  -->
@@ -81,24 +83,76 @@
                             Apple
                         </label>
                     </div>
-                    <!-- <div class="form-check col-md-10">
-                    <label class="avail-label">SIZE CHART</label>  
-                    <img id="view-img" src="img/chart.png" class="fit-view-img">
-               
-                </div>  -->
-                </div>    
-                
+                </div>     
+                <div class="form-check col-md-12">
+        <div class="row">
+            
+            <div class="col-md-12">
+                <label class="avail-label">SIZE CHART</label>  
+        <img class="full" src="img/chart.png" >
+   
             </div>
+            <div class="col-md-6 custom">  
+    <h3 class="text-center">Customization Toolbar</h3>              
+    <div class="form-group">
+        <label for="name">Bust</label>
+    <input type="number" class="form-control" id="name" name="name" required>
+    </div> 
+    <div class="form-group">
+        <label for="name">Waist</label>
+        <input type="number" class="form-control" id="name" name="name" required>
+    </div> 
+    <div class="form-group">
+        <label for="name">Hips</label>
+        <input type="number" class="form-control" id="name" name="name" required>
+    </div> 
+    <button class="cart-btn btn form-control">Save</button>
 </div>
-            <div class="col-md-4">
-                <img id="view-img" src="img/fitted <?php echo $_GET['cat']?>/small/rectangle.png" class="fit-view-img">
-            </div>   
-           
+
+        </div>
+        
+
+            </div>    
+            
+        </div>
+    </div>
+    <!-- <div class="form-check col-md-12">
+        <div class="row">
+            
+            <div class="col-md-8">
+                <label class="avail-label">SIZE CHART</label>  
+        <img class="full" src="img/chart.png" >
+   
+            </div>
+            <div class="col-md-4 custom">  
+    <h3 class="text-center">Customize</h3>              
+    <div class="form-group">
+        <label for="name">Bust</label>
+    <input type="number" class="form-control" id="name" name="name" required>
+    </div> 
+    <div class="form-group">
+        <label for="name">Waist</label>
+        <input type="number" class="form-control" id="name" name="name" required>
+    </div> 
+    <div class="form-group">
+        <label for="name">Hips</label>
+        <input type="number" class="form-control" id="name" name="name" required>
+    </div> 
+    <button class="cart-btn btn form-control">Save</button>
+</div>
+
+        </div> -->
+        
+
+    <div class="col-md-4">
+        <img id="view-img" src="img/fitted <?php echo $_GET['cat']?>/small/rectangle.png" class="fit-view-img">
+    </div>   
+    
                 
             <div class="row">                
                 
                 <div class="col-md-10">
-                    <label class="avail-label"><?php echo $_GET['cat']?></label>                    
+                    <!-- <label class="avail-label"><?php echo $_GET['cat']?></label>                     -->
                 </div>
                 
                 <div class="col-md-2">
@@ -111,29 +165,15 @@
             
             </div>
         </div>
+            
+        </div>
+
     </div>
     
     <script>
          document.getElementById('small').checked = true
         var size = "sm";
         function change(bodysize) {
-        // console.log(`this`);
-        // let sizeCheck = document.querySelector('input[name="size"]:checked');
-        // let dir = 'small';
-        // switch (sizeCheck) {
-        //     case 'small':
-        //         dir = "small";
-        //         break;
-        //     case 'medium':
-        //         dir = "medium";
-        //         break;
-        //     case 'large':
-        //         dir = "large";
-        //         break;
-        //     default:
-        //         break;
-        // }
-        // dir=`<?php echo $_GET['cat']?>/${sizeCheck}`;
         let img = document.getElementById('view-img');
         let check = document.querySelector('input[name="size"]:checked').value;
         
@@ -193,6 +233,14 @@
     function setSize() {
         let sizeCheck = document.querySelector('input[name="body-size"]');
         let check = document.querySelector('input[name="size"]:checked');
+        let sizes = document.getElementsByName('size');
+        for (let i = 0; i < sizes.length; i++) {
+            const el = sizes[i].parentNode;
+            el.classList.remove('check');
+            if (sizes[i] == check) {
+                el.classList.add('check');
+            }
+        }
         // console.log(check.value);
         document.getElementById("rect-img").setAttribute('src',"img/<?php echo $_GET['cat']?>/"+check.value+"/rectangle.png");
         document.getElementById("hour-img").setAttribute('src',"img/<?php echo $_GET['cat']?>/"+check.value+"/hourglass.png");
@@ -214,5 +262,17 @@
     }
     .fit-view-img{
         max-height:70vh
+    }
+    .custom{
+        border: 1px solid #d46a6a;
+        border-radius:4px;
+        padding:20px;
+        margin-top:20px;
+    }
+    .full{
+        max-width:100%;
+    }
+    .check{
+        border:2px solid black !important;
     }
 </style>
