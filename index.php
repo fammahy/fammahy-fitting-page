@@ -47,7 +47,7 @@
             <button class="btn btn-outline form-control" onclick="plus()"><img src="img\plussize.png" class="button-thumb"><label>Plus Size</label></button>&nbsp;&nbsp;&nbsp;
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-            <button class="btn btn-outline form-control" onclick="noProduct()"><img src="img\jean.png"class="button-thumb"><label>petite</label></button>&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-outline form-control" onclick="petite()"><img src="img\jean.png"class="button-thumb"><label>petite</label></button>&nbsp;&nbsp;&nbsp;
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <button class="btn btn-outline form-control" onclick="noProduct()"><img src="img\skirt-removebg-preview.png" class="button-thumb"><label>Shape</label></button>&nbsp;&nbsp;&nbsp;
@@ -55,7 +55,7 @@
     </div>
     <h2 id="available" style="text-align:center"></h2>
     <div id="main" class="row"> 
-    <div class="col-md-2">
+        <div class="col-md-2" id="blue">
             <div class="card">
                 <img src="img/blue.png" class="card-img-top show" alt="...">
                 <div class="card-body row">
@@ -68,6 +68,20 @@
                     <?php } ?>
     
                     
+                </div>
+            </div>
+        </div>           
+        <div class="col-md-2 d-none" id="black">
+            <div class="card">
+                <img src="img/black.png" class="card-img-top show" alt="...">
+                <div class="card-body row">
+                    <a class="btn cart-btn try-on" href="details.php?p=1&cat=tall">Try on</a>
+                    <?php if (isset($_SESSION['userid']) && $_SESSION['userid']!=''){?>
+                        <button class="btn btn-outline" onclick="addToCart(<?php echo $data['id']; ?>)">Add to cart</button>
+                        
+                    <?php } else { ?>
+                        <a class="btn btn-outline" href="login.php">Add to cart</a>
+                    <?php } ?>                    
                 </div>
             </div>
         </div>           
@@ -105,9 +119,12 @@
         function availProduct() {
             document.getElementById('available').innerHTML = "";
             document.getElementById('main').classList.remove('d-none');
+            document.getElementById('blue').classList.add('d-none');
+            document.getElementById('black').classList.add('d-none');
         }
         function plus() {
             availProduct();
+            document.getElementById('blue').classList.remove('d-none');
             let link = document.getElementsByClassName('try-on');
             for(let i = 0; i< link.length; i++){
                 let href = link[i].getAttribute('href').split('&')[0] + '&cat=plus';
@@ -116,9 +133,20 @@
         }
         function small() {
             availProduct();
+            document.getElementById('blue').classList.remove('d-none');
             let link = document.getElementsByClassName('try-on');
             for(let i = 0; i< link.length; i++){
                 let href = link[i].getAttribute('href').split('&')[0] + '&cat=tall';
+                link[i].setAttribute('href',href);
+            }
+
+        }
+        function petite() {
+            availProduct();
+            document.getElementById('black').classList.remove('d-none');
+            let link = document.getElementsByClassName('try-on');
+            for(let i = 0; i< link.length; i++){
+                let href = link[i].getAttribute('href').split('&')[0] + '&cat=petite';
                 link[i].setAttribute('href',href);
             }
 

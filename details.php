@@ -38,14 +38,14 @@
         <div class="col-sm-2">            
             <label class="btn btn-outline form-control rad" for="small"><input class="d-none" value="small" onchange="setSize()" type="radio" name="size" id="small">Small</label>
         </div> 
-        <?php if($_GET['cat'] == 'tall'){?>
+        <?php// if($_GET['cat'] == 'tall'){?>
         <div class="col-sm-2">            
             <label class="btn btn-outline form-control rad" for="medium"><input class="d-none" value="medium" onchange="setSize()" type="radio" name="size" id="medium">Medium</label>
         </div> 
         <div class="col-sm-2 p-20">            
             <label class="btn btn-outline form-control rad" for="large"><input class="d-none" value="large" onchange="setSize()" type="radio" name="size" id="large">Large</label>
         </div> 
-        <?php } ?>
+        <?php// } ?>
         <!-- <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <button class="btn btn-outline form-control"><label>Large</label></button>&nbsp;&nbsp;&nbsp;
         </div> </div>  -->
@@ -96,15 +96,30 @@
     <h3 class="text-center">Customization Toolbar</h3>              
     <div class="form-group">
         <label for="name">Bust</label>
-    <input type="number" class="form-control" id="name" name="name" required>
+        <div class="input-group mb-3">
+            <input type="number" class="form-control" placeholder="50" >
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">cm</span>
+            </div>
+        </div>
     </div> 
     <div class="form-group">
         <label for="name">Waist</label>
-        <input type="number" class="form-control" id="name" name="name" required>
+        <div class="input-group mb-3">
+            <input type="number" class="form-control" placeholder="38" >
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">cm</span>
+            </div>
+        </div>
     </div> 
     <div class="form-group">
         <label for="name">Hips</label>
-        <input type="number" class="form-control" id="name" name="name" required>
+        <div class="input-group mb-3">
+            <input type="number" class="form-control" placeholder="50" >
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">cm</span>
+            </div>
+        </div>
     </div> 
     <button class="cart-btn btn form-control">Save</button>
 </div>
@@ -116,34 +131,6 @@
             
         </div>
     </div>
-    <!-- <div class="form-check col-md-12">
-        <div class="row">
-            
-            <div class="col-md-8">
-                <label class="avail-label">SIZE CHART</label>  
-        <img class="full" src="img/chart.png" >
-   
-            </div>
-            <div class="col-md-4 custom">  
-    <h3 class="text-center">Customize</h3>              
-    <div class="form-group">
-        <label for="name">Bust</label>
-    <input type="number" class="form-control" id="name" name="name" required>
-    </div> 
-    <div class="form-group">
-        <label for="name">Waist</label>
-        <input type="number" class="form-control" id="name" name="name" required>
-    </div> 
-    <div class="form-group">
-        <label for="name">Hips</label>
-        <input type="number" class="form-control" id="name" name="name" required>
-    </div> 
-    <button class="cart-btn btn form-control">Save</button>
-</div>
-
-        </div> -->
-        
-
     <div class="col-md-4">
         <img id="view-img" src="img/fitted <?php echo $_GET['cat']?>/small/rectangle.png" class="fit-view-img">
     </div>   
@@ -274,5 +261,10 @@
     }
     .check{
         border:2px solid black !important;
+    }
+    .input-group-text{
+        background-color:#ffaaaa50!important;
+        border-bottom-left-radius:0;
+        border-top-left-radius:0;
     }
 </style>
